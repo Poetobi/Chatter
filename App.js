@@ -1,20 +1,62 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-export default function App() {
+import Home from "./screens/Home";
+import Login from "./screens/Login";
+import User from "./screens/User";
+import Sign from "./screens/Sign";
+import Otp from "./screens/Otp";
+import Dial from "./screens/Dial";
+import Convo from "./screens/Convo";
+
+
+
+
+const Stack = createNativeStackNavigator();
+
+
+const MyStack = ()  => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{title: "Chatter"}}
+            />
+               <Stack.Screen
+            name="Login"
+            component={Login}
+            />
+            <Stack.Screen
+            name="User"
+            component={User}
+            />
+             <Stack.Screen
+            name="Sign"
+            component={Sign}
+            />
+             <Stack.Screen
+            name="Otp"
+            component={Otp}
+            />
+       
+             <Stack.Screen
+            name="Dial"
+            component={Dial}
+            />
+             <Stack.Screen
+            name="Convo"
+            component={Convo}
+            />
+        </Stack.Navigator>
+    </NavigationContainer>
+
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default MyStack
+
+
